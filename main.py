@@ -6,8 +6,6 @@ from kivy.uix.label import Label
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.core.window import Window
-from kivy.uix.button import Button
-import webbrowser
 
 #Opening Page
 Builder.load_string("""
@@ -88,7 +86,7 @@ Builder.load_string("""
                 font_size: 75
                 size_hint_y: None
                 height: 200
-                text: "Visit KSquared,LLC"
+                text: "Visit KSquared-Math,LLC"
                 background_color: 0, 1, 1, 1
                 on_release:
                     import webbrowser
@@ -228,7 +226,6 @@ Builder.load_string("""
                     height: 200
                     padding: 10, 10
                     on_release:
-                        Power_entry.text = ""
                         Base_entry.text = ""
                         list_of_steps.clear_widgets()       
                 
@@ -265,7 +262,7 @@ Builder.load_string("""
                 font_size: 75
                 size_hint_y: None
                 height: 200
-                text: "Visit KSquared,LLC"
+                text: "Visit KSquared-Math,LLC"
                 background_color: 0, 1, 1, 1
                 on_release:
                     import webbrowser
