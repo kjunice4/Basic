@@ -39,7 +39,7 @@ Builder.load_string("""
             background_color: 0, 0 , 0 , 1
             size_hint_y: None
             height: 100
-            text: "KSquared-math,LLC © : Free Basic Calculator"
+            text: "KSquared-math,LLC © : Basic Calculator"
             on_release:
                 app.root.current = "Menu"
                 root.manager.transition.direction = "left" 
@@ -305,7 +305,9 @@ class Basic(Screen):
         
         try:
             print("entry",entry)
-            self.ids.list_of_steps.add_widget(Label(text= "Click on the link above to subscribe to more KSquared-Math apps!" ,font_size = 50, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text= "Click on the link above to" ,font_size = 50, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text= "subscribe to more KSquared-Math apps!" ,font_size = 50, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text= "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" ,font_size = 50, size_hint_y= None, height=100))
             self.ids.list_of_steps.add_widget(Label(text="Expression entered : " + entry, font_size = 50, size_hint_y= None, height=100))
             
             Answer = str(eval(str(entry).replace("^","**")))
