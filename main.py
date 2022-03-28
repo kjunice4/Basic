@@ -6,6 +6,7 @@ from kivy.uix.label import Label
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.core.window import Window
+from kivy.uix.button import Button
 
 #Opening Page
 Builder.load_string("""
@@ -255,9 +256,16 @@ Builder.load_string("""
                 height: 200
                 padding: 10, 10
                 on_release:
+                    promo.clear_widgets()
                     list_of_steps.clear_widgets() 
                     Basic.steps(Base_entry.text)    
-                    
+            
+            GridLayout:
+                id: promo
+                cols: 1
+                size_hint: 1, None
+                height: self.minimum_height   
+            
             Button:
                 font_size: 75
                 size_hint_y: None
@@ -285,13 +293,16 @@ class Basic(Screen):
 
     def _key_handler(self, instance, key, *args):
         if key == 27:
+            print("27 key hit, go back button")
             self.set_previous_screen()
             return True
 
     def set_previous_screen(self):
         if sm.current != "Homepage":
             sm.transition.direction = 'right'
+            print("Transition Right")
             sm.current = "Menu"
+            print("going to main menu")
             
     layouts = []
     def steps(self,entry):
@@ -302,9 +313,8 @@ class Basic(Screen):
         
         try:
             print("entry",entry)
-            self.ids.list_of_steps.add_widget(Label(text= "Click on the link above to" ,font_size = 50, size_hint_y= None, height=100))
-            self.ids.list_of_steps.add_widget(Label(text= "subscribe to more KSquared-Math apps!" ,font_size = 50, size_hint_y= None, height=100))
-            self.ids.list_of_steps.add_widget(Label(text= "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" ,font_size = 50, size_hint_y= None, height=100))
+            self.ids.promo.add_widget(Label(text= "Click on the link below to" ,font_size = 50, size_hint_y= None, height=100))
+            self.ids.promo.add_widget(Label(text= "subscribe to more KSquared-Math apps!" ,font_size = 50, size_hint_y= None, height=100))
             self.ids.list_of_steps.add_widget(Label(text="Expression entered : " + entry, font_size = 50, size_hint_y= None, height=100))
             
             Answer = str(eval(str(entry).replace("^","**")))
@@ -317,8 +327,6 @@ class Basic(Screen):
             self.ids.list_of_steps.add_widget(Label(text= "Basic Calculator cannot compute" ,font_size = 50, size_hint_y= None, height=100))
             self.layouts.append(layout)
             
-    
-        
 class Homepage(Screen):
     pass            
 
