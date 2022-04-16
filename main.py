@@ -38,7 +38,7 @@ Builder.load_string("""
             background_color: 0, 0 , 0 , 1
             size_hint_y: None
             height: 100
-            text: "KSquared-math,LLC © : Basic Calculator"
+            text: "KSquared-Mathematics : Basic Calculator"
             on_release:
                 app.root.current = "Menu"
                 root.manager.transition.direction = "left" 
@@ -87,7 +87,7 @@ Builder.load_string("""
                 font_size: 75
                 size_hint_y: None
                 height: 200
-                text: "Visit KSquared-Math,LLC"
+                text: "Visit KSquared-Mathematics"
                 background_color: 0, 1, 1, 1
                 on_release:
                     import webbrowser
@@ -109,7 +109,7 @@ Builder.load_string("""
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
-                text: "Share KSquared-math,LLC ©"
+                text: "Share KSquared-Mathematics"
                     
             Image:
                 source: 'KSquared_QR_code.png'
@@ -142,7 +142,7 @@ Builder.load_string("""
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
-                text: "What's new at KSquared-math?"
+                text: "What's new at KSquared-Mathematics?"
             
             Button:
                 id: steps
@@ -289,20 +289,6 @@ class Basic(Screen):
 
     def __init__(self, **kwargs):
         super(Basic, self).__init__(**kwargs)
-        Window.bind(on_keyboard=self._key_handler)
-
-    def _key_handler(self, instance, key, *args):
-        if key == 27:
-            print("27 key hit, go back button")
-            self.set_previous_screen()
-            return True
-
-    def set_previous_screen(self):
-        if sm.current != "Homepage":
-            sm.transition.direction = 'right'
-            print("Transition Right")
-            sm.current = "Menu"
-            print("going to main menu")
             
     layouts = []
     def steps(self,entry):
@@ -343,11 +329,21 @@ sm.add_widget(Basic(name="Basic"))
 sm.add_widget(updates(name="updates"))
 sm.current = "Homepage"   
 
-class Exponents(App):
+class Basic(App):
+    def __init__(self, **kwargs):
+        super(Basic, self).__init__(**kwargs)
+        Window.bind(on_keyboard=self._key_handler)
+    
+    def _key_handler(self, instance, key, *args):
+        print("key:",key)
+        if key == 27:
+            sm.current = sm.current
+            return True
+    
     def build(app):
         return sm
 
 if __name__ == '__main__':
-    Exponents().run()
+    Basic().run()
     
 
