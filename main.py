@@ -24,20 +24,20 @@ Builder.load_string("""
                 root.manager.transition.direction = "left" 
         
         Button:
-            font_size: 50
+            font_size: '15sp'
             background_color: 0, 0 , 0 , 1
+            height: 100
             size_hint_y: None
-            height: 200
             text: "Tap anywhere to continue"
             on_release:
                 app.root.current = "Menu"
                 root.manager.transition.direction = "left"        
 
         Button:
-            font_size: 50
+            font_size: '15sp'
             background_color: 0, 0 , 0 , 1
-            size_hint_y: None
             height: 100
+            size_hint_y: None
             text: "KSquared-Mathematics : Basic Calculator"
             on_release:
                 app.root.current = "Menu"
@@ -66,7 +66,7 @@ Builder.load_string("""
             height: self.minimum_height
             
             Label:
-                font_size: 75
+                font_size: '20sp'
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
@@ -74,7 +74,7 @@ Builder.load_string("""
             
             Button:
                 text: "Basic Calculator"   
-                font_size: 75
+                font_size: '20sp'
                 background_color: 0, 0 , 1 , 1
                 size_hint_y: None
                 height: 200
@@ -84,7 +84,7 @@ Builder.load_string("""
                     root.manager.transition.direction = "left" 
                     
             Button:
-                font_size: 75
+                font_size: '20sp'
                 size_hint_y: None
                 height: 200
                 text: "Visit KSquared-Mathematics"
@@ -94,7 +94,7 @@ Builder.load_string("""
                     webbrowser.open('https://kevinjunice.wixsite.com/ksquaredllc')
                     
             Button:
-                font_size: 75
+                font_size: '20sp'
                 background_color: 1, 0, 1, 1
                 size_hint_y: None
                 height: 200
@@ -105,17 +105,17 @@ Builder.load_string("""
                     root.manager.transition.direction = "left"
                     
             Label:
-                font_size: 75
+                font_size: '20sp'
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
                 text: "Share KSquared-Mathematics"
                     
             Image:
-                source: 'KSquared_QR_code.png'
+                source: 'KSquared_QR.png'
                 size_hint_y: None
-                height: 1000
-                width: 1000
+                height: 800
+                width: 800
 """)
 
 #Updates
@@ -132,13 +132,13 @@ Builder.load_string("""
         GridLayout:
             cols: 1
             padding:10
-            spacing:10
+            acing:10
             size_hint: 1, None
             width:200
             height: self.minimum_height
             
             Label:
-                font_size: 60
+                font_size: '20sp'
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
@@ -147,7 +147,7 @@ Builder.load_string("""
             Button:
                 id: steps
                 text: "Menu"   
-                font_size: 75
+                font_size: '20sp'
                 size_hint_y: None
                 background_color: 0, 0 , 1 , 1
                 height: 200
@@ -157,14 +157,14 @@ Builder.load_string("""
                     root.manager.transition.direction = "right" 
                     
             Label:
-                font_size: 40
+                font_size: '20sp'
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
                 text: "Free Basic Calculator v0.1"
                 
             Label:
-                font_size: 40
+                font_size: '20sp'
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
@@ -192,7 +192,7 @@ Builder.load_string("""
             height: self.minimum_height
             
             Label:
-                font_size: 75
+                font_size: '20sp'
                 size_hint_y: None
                 height: 200
                 padding: 10, 10
@@ -201,7 +201,7 @@ Builder.load_string("""
             BoxLayout:
                 cols: 2
                 padding:10
-                spacing:10
+                acing:10
                 size_hint: 1, None
                 width:300
                 size_hint_y: None
@@ -209,7 +209,7 @@ Builder.load_string("""
 
                 Button:
                     text: "Menu"   
-                    font_size: 75
+                    font_size: '20sp'
                     size_hint_y: None
                     height: 200
                     padding: 10, 10
@@ -221,7 +221,7 @@ Builder.load_string("""
                 Button:
                     id: steps
                     text: "Clear All"   
-                    font_size: 75
+                    font_size: '20sp'
                     size_hint_y: None
                     background_color: 1, 0 , 0 , 1
                     height: 200
@@ -242,7 +242,7 @@ Builder.load_string("""
                     text: Base_entry.text
                     hint_text: "Entry:"
                     multiline: False
-                    font_size: 125
+                    font_size: '20sp'
                     size_hint_y: None
                     height: 200
                     padding: 10
@@ -250,7 +250,7 @@ Builder.load_string("""
             Button:
                 id: steps
                 text: "Calculate"   
-                font_size: 75
+                font_size: '20sp'
                 size_hint_y: None
                 background_color: 0, 1 , 0 , 1
                 height: 200
@@ -267,10 +267,10 @@ Builder.load_string("""
                 height: self.minimum_height   
             
             Button:
-                font_size: 75
+                font_size: '20sp'
                 size_hint_y: None
                 height: 200
-                text: "Visit KSquared-Math,LLC"
+                text: "Visit KSquared-Mathematics"
                 background_color: 0, 1, 1, 1
                 on_release:
                     import webbrowser
@@ -299,18 +299,18 @@ class Basic(Screen):
         
         try:
             print("entry",entry)
-            self.ids.promo.add_widget(Label(text= "Click on the link below to" ,font_size = 50, size_hint_y= None, height=100))
-            self.ids.promo.add_widget(Label(text= "subscribe to more KSquared-Math apps!" ,font_size = 50, size_hint_y= None, height=100))
-            self.ids.list_of_steps.add_widget(Label(text="Expression entered : " + entry, font_size = 50, size_hint_y= None, height=100))
+            self.ids.promo.add_widget(Label(text= "Click on the link below to" ,font_size = '15sp', size_hint_y= None, height=100))
+            self.ids.promo.add_widget(Label(text= "subscribe to more KSquared-Math apps!" ,font_size = '15sp', size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text="Expression entered : " + entry, font_size = '15sp', size_hint_y= None, height=100))
             
             Answer = str(eval(str(entry).replace("^","**")))
             Answer = "{:,}".format(float(Answer.replace(",","")))
             print("Answer",Answer)
             
-            self.ids.list_of_steps.add_widget(Label(text="Answer: " + '[color=33CAFF]' + Answer + '[/color]', markup=True, font_size = 50, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text="Answer: " + '[color=33CAFF]' + Answer + '[/color]', markup=True, font_size = '15sp', size_hint_y= None, height=100))
         
         except Exception:
-            self.ids.list_of_steps.add_widget(Label(text= "Basic Calculator cannot compute" ,font_size = 50, size_hint_y= None, height=100))
+            self.ids.list_of_steps.add_widget(Label(text= "Basic Calculator cannot compute" ,font_size = '15sp', size_hint_y= None, height=100))
             self.layouts.append(layout)
             
 class Homepage(Screen):
