@@ -242,7 +242,7 @@ Builder.load_string("""
                     text: Base_entry.text
                     hint_text: "Entry:"
                     multiline: False
-                    font_size: '20sp'
+                    font_size: '35sp'
                     size_hint_y: None
                     height: 200
                     padding: 10
