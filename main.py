@@ -345,5 +345,3 @@ class Basic(App):
 
 if __name__ == '__main__':
     Basic().run()
-    
-
